@@ -1,0 +1,97 @@
+/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+*/
+
+@keyframes arrow {
+  from {
+    left: -20px;
+  }
+  to {
+    left: -16px;
+  }
+}
+
+@keyframes heart {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes sparks {
+  from {
+    fill: none;
+  }
+  to {
+    fill: #ff0000;
+    opacity: 1;
+  }
+}
+
+.like-icon .core {
+  fill: var(--background-color);
+  transition: fill 0.3s 0.05s;
+}
+
+.like-icon .main-body {
+  fill: var(--background-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon .contour {
+  transition: fill 0.1s linear;
+}
+
+.like-icon:hover .core {
+  fill: var(--theme-accent-color);
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heart-color);
+}
+
+.like-icon:active .core {
+  fill: var(--heart-color);
+}
+
+.like-icon:hover .main-body {
+  fill: var(--theme-accent-color);
+}
+
+.like-icon:active .main-body {
+  fill: var(--heart-color);
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-color);
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-color);
+  transition: fill 0.3s linear;
+  transition-delay: 0.06s;
+}
+
+.like-icon.is-liked .heart {
+  transform-origin: center;
+  animation: heart 0.3s ease-in alternate;
+  animation-delay: 0.1s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s ease-in alternate;
+  animation-delay: 0.3s;
+}
